@@ -9,22 +9,22 @@
 *{
 margin: 0;
 padding: 0;
-
 }
 footer{
+position: fixed;
+left: 0;
+bottom: 1px;
 width: 100%;
 height: 50px;
+text-align:center;
+font-size: 25px;
 line-height: 50px;
-text-align: center;
+background-color: blue;
 color: #fff;
-background: blue;
-position: fixed;
-bottom: 0;
-left: 0;
 }
 </style>
 </head>
 <body>
-<footer>HRDKOREA Copyright &copy;2016 All rights reserved Human Resources Development Service of Korea</footer>
+<footer>SDHS Copyright &copy; All rights reserved.</footer>
 </body>
 </html>

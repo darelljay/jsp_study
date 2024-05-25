@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 public class DB {
  public static Connection getConn() throws Exception{
 	 Class.forName("oracle.jdbc.OracleDriver");
-	 Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:system","system","1234");
+	 Connection conn = DriverManager.getConnection("jdbc/oracle/thin/@/localhost:1521/system","system","1234");
 	 
 	 return conn;
  }

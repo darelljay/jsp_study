@@ -41,42 +41,4 @@ into RESERVAION_TBL_202305 (resv_no,resv_name,resv_phone,resv_from_ymd,resv_to_y
 values ('10005','최갈동','01066667777','20230525','20230525','201')
 select * from dual;
 
-select max(resv_no) + 1 from RESERVAION_TBL_202305
-
-select rm_number from ROOM_TBL_202305 R1
-join RESERVAION_TBL_202305 R2 on R1.rm_number = R2.resv_rm_number
-group by rm_number
-order by rm_number desc;
-
-
-select rm_number from ROOM_TBL_202305
-where rm_number not in (select rm_number from ROOM_TBL_202305 R1
-join RESERVAION_TBL_202305 R2 on R1.rm_number = R2.resv_rm_number
-group by rm_number)
-
-
-SELECT 
-    r.resv_no AS "예약번호", 
-    r.resv_name AS "예약자 성명", 
-    SUBSTR(r.resv_phone, 1, 3) || '-' || 
-    SUBSTR(r.resv_phone, 4, 4) || '-' || 
-    SUBSTR(r.resv_phone, 8, 4) AS "예약자전화번호",
-    SUBSTR(r.resv_from_ymd, 1, 4) || '/' ||
-    SUBSTR(r.resv_from_ymd, 5, 2) || '/' ||
-    SUBSTR(r.resv_from_ymd, 7, 2) || '~' ||
-    SUBSTR(r.resv_to_ymd, 1, 4) || '/' ||
-    SUBSTR(r.resv_to_ymd, 5, 2) || '/' ||
-    SUBSTR(r.resv_to_ymd, 7, 2) AS "예약기간",
-    r.resv_rm_number,
-    CASE rt.rm_type
-        WHEN 'a' THEN '2인실'
-        WHEN 'b' THEN '4인실'
-        ELSE '기타'
-    END AS "객실유형"
-FROM 
-    RESERVAION_TBL_202305 r
-JOIN 
-    ROOM_TBL_202305 rt ON r.resv_rm_number = rt.rm_number;
-    
- 
 
